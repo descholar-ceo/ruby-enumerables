@@ -300,4 +300,14 @@ describe Enumerable do
     end
   end
 
+  describe '#multiply_els' do
+    let(:product){ multiply_els(my_array) == my_array.inject(:*) }
+    it 'When no array passed' do
+      expect(multiply_els()).to be_kind_of(Enumerator)
+    end
+    it 'When array is given' do
+      expect(product).to eql(true)
+    end
+  end
+
 end
