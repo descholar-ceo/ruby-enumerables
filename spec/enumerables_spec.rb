@@ -232,7 +232,9 @@ describe Enumerable do
   describe '#my_inject' do
     let(:longest_word){ proc { |word, long| word.length > long.length ? word : long } }
     let(:sum){ my_array.my_inject(:+) == my_array.inject(:+) }
+    let(:range_sum){ my_range.my_inject(:+) == my_range.inject(:+) }
     let(:addition){ my_array.my_inject(1, :+) == my_array.inject(1, :+) }
+    let(:range_addition){ my_range.my_inject(1, :+) == my_range.inject(1, :+) }
     let(:ordinary){ proc { |num, n| num * n } }
 
     it 'when a block is given and no argument' do
@@ -251,6 +253,51 @@ describe Enumerable do
       expect(my_array.my_inject(1, &ordinary)).to eql(my_array.inject(1, &ordinary))
     end
 
+    it 'when there is no argument and no block' do
+        expect{my_array.my_inject}.to raise_error(LocalJumpError)
+    end
+
+    it 'when a symbol is an argument' do
+      expect(range_sum).to eql(true)
+    end
+
+    it 'when a numeric is the first arg and symbol is the second arg' do
+      expect(range_addition).to eql(true)
+    end
+
+    it 'when passing one arg as a number' do
+      expect(my_range.my_inject(1, &ordinary)).to eql(my_range.inject(1, &ordinary))
+    end
+
+    it 'when there is no argument and no block' do
+        expect{my_range.my_inject}.to raise_error(LocalJumpError)
+    end
+
+  end
+
+  describe '#my_map' do
+    let(:arr_map_with_block){my_array.my_map(&my_array_block) == my_array.map(&my_array_block)}
+    let(:range_map_with_block){my_range.my_map(&my_array_block) == my_range.map(&my_array_block)}
+
+    it 'When an array and a block is given' do
+        expect(arr_map_with_block).to eql(true)
+    end
+
+    it 'When an array and a block is given' do
+        expect(my_words.my_map {'software'}).to eql(["software", "software", "software", "software", "software", "software"])
+    end
+
+    it 'When a range and a block is given' do
+        expect(range_map_with_block).to eql(true)
+    end
+
+    it 'When an array but no block given' do
+        expect(my_array.my_map).to be_kind_of(Enumerator)
+    end
+
+    it 'When a range but no block is given' do
+        expect(my_range.my_map).to be_kind_of(Enumerator)
+    end
   end
 
 end
