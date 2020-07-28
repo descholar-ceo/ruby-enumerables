@@ -1,4 +1,4 @@
-require('../enumerables')
+require_relative('../enumerables')
 
 TEST_ARRAY_SIZE = 100
 MIN_VALUE = 0
