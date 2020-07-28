@@ -34,7 +34,7 @@ This project is a reimplemented our own ruby enumerable methods such as:
 To have a copy of this project and run it locally, please ensure you have Ruby installed on your machine, then clone this repository by running.
 
 ```bash
-git clone https://github.com/m15e/ruby-enumerables
+git clone https://github.com/descholar-ceo/ruby-enumerables
 ```
 
 After cloning run
@@ -43,7 +43,7 @@ After cloning run
 cd ruby-enumerables
 ```
 
-Lastly run test different methods found in `enumerables.rp` file which is in root directory of the cloned project
+Lastly run test different methods found in `enumerables.rb` file which is in root directory of the cloned project
 
 ## Authors
 
