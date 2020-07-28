@@ -51,11 +51,16 @@ Lastly run test different methods found in `enumerables.rb` file which is in roo
 
 - Github: [@descholar-ceo](https://github.com/descholar-ceo)
 - Twitter: [@descholar3](https://twitter.com/descholar3)
-- Linkedin: [MUGIRASE Emmanuel](linkedin.com/in/mugirase-emmanuel-a90b49143)
+- Linkedin: [MUGIRASE Emmanuel](https://www.linkedin.com/in/mugirase-emmanuel-a90b49143)
 
 👤 **Mark Rode**
 
 - Github: [@m15e](https://github.com/m15e)
+
+👤 **Mahmoud Bakr**
+
+- Github: [@MahmoudBakr23](https://www.github.com/MahmoudBakr23)
+- Linkedin: [Mahmoud Bakr](https://www.linkedin.com/in/mahmoud-bakr-a76323194/)
 
 ## Show your support
 
