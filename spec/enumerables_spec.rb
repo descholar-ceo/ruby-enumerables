@@ -230,18 +230,27 @@ describe Enumerable do
   end
 
   describe '#my_inject' do
-    let(:array_with_block){ my_array.my_inject(&my_array_block) == my_array.inject(&my_array_block) }
-    let(:range_with_block){ my_range.my_inject(&my_array_block) == my_range.inject(&my_array_block) }
+    let(:longest_word){ proc { |word, long| word.length > long.length ? word : long } }
+    let(:sum){ my_array.my_inject(:+) == my_array.inject(:+) }
+    let(:addition){ my_array.my_inject(1, :+) == my_array.inject(1, :+) }
+    let(:ordinary){ proc { |num, n| num * n } }
 
-    it 'when no block and no argument' do
-      expect(array_with_block).to eql(true)
+    it 'when a block is given and no argument' do
+      expect(my_words.my_inject(&longest_word)).to eql("programming")
     end
 
-    it "when it's a range" do
-      expect(range_with_block).to eql(true)
+    it 'when a symbol is an argument' do
+      expect(sum).to eql(true)
     end
 
-    
+    it 'when a numeric is the first arg and symbol is the second arg' do
+      expect(addition).to eql(true)
+    end
+
+    it 'when passing one arg as a number' do
+      expect(my_array.my_inject(1, &ordinary)).to eql(my_array.inject(1, &ordinary))
+    end
+
   end
 
 end
