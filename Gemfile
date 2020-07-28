@@ -1,6 +1,0 @@
-require 'rubygems'
-require 'bundler/setup'
-source 'https://rubygems.org'
-gem 'rubocop', '~>0.81.0'
-gem 'rspec', '~>3.0'
-gem 'solargraph' 
